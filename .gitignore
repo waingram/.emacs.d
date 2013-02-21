@@ -1,0 +1,9 @@
+backup
+auto-save-list
+/url/cookies
+/secrets.el
+/session.*
+/tramp
+/elpa
+
+ 
