@@ -9,6 +9,8 @@
  '(ido-enable-flex-matching t)
  '(ido-mode (quote both) nil (ido))
  '(indent-tabs-mode nil)
+ '(initial-frame-alist (quote ((top . 60) (left . 300) (width . 170) (height . 60))))
+ '(magit-process-connection-type nil)
  '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("ELPA" . "http://tromey.com/elpa/") ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(show-paren-mode t)
  '(tool-bar-mode nil))

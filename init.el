@@ -26,7 +26,7 @@
 
 ;; Add my personal elisp directory to load path
 (add-to-list 'load-path wai-elisp-dir)
-
+                                                                                                                                                                       
 ;; Add external projects to load path
 (dolist (project (directory-files wai-elisp-external-dir t "\\w+"))
   (when (file-directory-p project)
@@ -47,11 +47,3 @@
   (load wai-secrets-file))
 
 
-;; packages
-(require 'eieio)
-
-(require 'gist)
-(setq gist-authenticate-function 'gist-basic-authentication)
-
-; Keyboard Bindings
-(global-set-key (kbd "<f8>") 'gist-region-or-buffer)
