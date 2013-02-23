@@ -24,6 +24,8 @@
                       magit
                       markdown-mode
                       org
+                      rainbow-delimiters
+                      smex
                       xml-rpc))
 
 (dolist (p my-packages)
