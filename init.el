@@ -34,10 +34,6 @@
     (dolist (file (directory-files wai-emacs-init-dir t "\\.el$"))
       (load file)))
 
-; Set up cygwin stuff if needed 
-(if (eq system-type 'windows-nt)
-    (load (expand-file-name "setup-cygwin.el" wai-emacs-conf-dir)))
-
 ;; Set up 'custom' system
 (setq custom-file (expand-file-name "custom.el" wai-emacs-config-dir))
 (load custom-file)

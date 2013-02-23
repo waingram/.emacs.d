@@ -1,3 +1,4 @@
-;; configure cygwin
+; Set up cygwin stuff if needed
 
-(cond ((eq system-type 'windows-nt) (load-library "ntemacs-cygwin")))
+(if (eq system-type 'windows-nt)
+    (load (expand-file-name "setup-cygwin.el" wai-emacs-conf-dir)))
