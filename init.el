@@ -51,8 +51,5 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-;; Start the server
-(require 'server)
-(unless (server-running-p)(server-start))
 
 

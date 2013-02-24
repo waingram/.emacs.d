@@ -23,6 +23,7 @@
                       json
                       magit
                       markdown-mode
+                      multi-term
                       org
                       rainbow-delimiters
                       smex
