@@ -15,7 +15,7 @@
 ;; (add-to-list 'load-path (normalize-slashes (getenv "HOME")))
 
 ;; -- we might want to debug
-(setq debug-on-error 1)
+(setq debug-on-error 0)
 
 ;; Set some directories
 (setq wai-emacs-init-file load-file-name)
@@ -24,26 +24,25 @@
 (setq wai-elisp-dir (expand-file-name "elisp" wai-emacs-home-dir))
 (setq wai-elisp-external-dir (expand-file-name "external" wai-elisp-dir))
 (setq wai-emacs-init-dir (expand-file-name "init.d" wai-emacs-home-dir))
-(setq wai-emacs-config-dir (expand-file-name "conf.d" wai-emacs-home-dir))
+(setq wai-emacs-lib-dir (expand-file-name "lib" wai-emacs-home-dir))
 
 ;; Add my personal elisp directory to load path
 (add-to-list 'load-path wai-elisp-dir)
+
+;; Set up 'custom' system
+(setq custom-file (expand-file-name "11-custom.el" wai-emacs-init-dir))
 
 ;; Load all elisp files in ./init.d
 (if (file-exists-p wai-emacs-init-dir)
     (dolist (file (directory-files wai-emacs-init-dir t "\\.el$"))
       (load file)))
 
-;; Set up 'custom' system
-(setq custom-file (expand-file-name "custom.el" wai-emacs-config-dir))
-(load custom-file)
-
 ;; Set up backup directory 
 (setq backup-directory-alist 
       (list (cons "." (expand-file-name "backup" user-emacs-directory))))
 
 ;; Secrets
-(setq wai-secrets-file (expand-file-name "secrets.el" wai-emacs-config-dir))
+(setq wai-secrets-file (expand-file-name "secrets.el" wai-emacs-lib-dir))
 (when (file-exists-p wai-secrets-file)(load wai-secrets-file))
                                
 ;; Add external projects to load path

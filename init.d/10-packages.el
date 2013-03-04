@@ -18,7 +18,7 @@
                       dired+
                       eieio
                       haml-mode
-		      gh
+                      gh
                       gist
                       json
                       magit
