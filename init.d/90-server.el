@@ -1,5 +1,8 @@
 ;; Emacs daemon mode
 
+;; open in the same frame
+(setq ns-pop-up-frames nil)
+
 ; server start for emacs-client
 (require 'server)
 (unless (server-running-p)
@@ -12,3 +15,6 @@
   (save-some-buffers)
   (kill-emacs)
 )
+
+;; make new frame visible when connecting via emacsclient
+(add-hook 'server-switch-hook 'raise-frame)

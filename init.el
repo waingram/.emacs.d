@@ -37,18 +37,32 @@
     (dolist (file (directory-files wai-emacs-init-dir t "\\.el$"))
       (load file)))
 
-;; Set up backup directory 
-(setq backup-directory-alist 
-      (list (cons "." (expand-file-name "backup" user-emacs-directory))))
+;; Set up backup directory
+(setq backup-by-copying t
+      backup-directory-alist
+      (list (cons "." (expand-file-name "backups" user-emacs-directory)))
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t
+      ;; Make backup files even when they're in version control
+      vc-make-backup-files t)
+
+;; Autosave settings
+(setq auto-save-file-name-transforms
+      `((".*" ,(concat user-emacs-directory "autosaves/\\1") t)))
+
+;; Create auto-save-list directory if doesn't exist yet
+;; as its lack causes errors while auto saving is performed.
+(let ((auto-save-list-dir (expand-file-name "auto-save-list" user-emacs-directory)))
+  (unless (file-exists-p auto-save-list-dir)
+    (make-directory auto-save-list-dir)))
 
 ;; Secrets
 (setq wai-secrets-file (expand-file-name "secrets.el" wai-emacs-lib-dir))
 (when (file-exists-p wai-secrets-file)(load wai-secrets-file))
-                               
+
 ;; Add external projects to load path
 (dolist (project (directory-files wai-elisp-external-dir t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
-
-
-
