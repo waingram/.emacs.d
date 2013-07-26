@@ -1,10 +1,14 @@
-backup
-auto-save-list
-/url/cookies
-/secrets.el
-/session.*
-/tramp
+*~
+.#*
+*.elc
 /elpa
-
- conf.d/secrets.el
-server
+/backups
+/auto-save-list
+/url/cookies
+/tramp
+/ido.last
+/bookmarks
+/server
+/eshell
+session*
+/secrets.el
